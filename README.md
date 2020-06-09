@@ -8,6 +8,8 @@
 | stick to center of element | Allows to show menu by the center of element's width                                                        |
 | dynamic positioning        | Allows to add dynamic offsets to base menu position                                                         |
 | position constraints       | Automatically applies constraints to never allow to go beyond screen borders. You always will see full menu |
+| **typescript support**     | TypeScript is a first-class citizen and works out-of-the box |
+
 
 | Animations            | Description                                                                                        |
 | :-------------------- | :------------------------------------------------------------------------------------------------- |
