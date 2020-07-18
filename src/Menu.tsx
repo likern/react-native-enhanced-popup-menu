@@ -385,11 +385,12 @@ export class Menu extends React.Component<Props, State> {
       menuState === STATES.SHOWN ||
       animationStarted;
 
-    const { testID, style, children } = this.props;
+    const { testID, style, children, accessible } = this.props;
 
     return (
-      <View collapsable={false} testID={testID}>
+      <View collapsable={false} testID={testID} accessible={accessible}>
         <Modal
+          accessible={accessible}
           visible={modalVisible}
           onRequestClose={this.hide}
           supportedOrientations={[
@@ -402,8 +403,8 @@ export class Menu extends React.Component<Props, State> {
           transparent
           onDismiss={this._onDismiss}
         >
-          <TouchableWithoutFeedback onPress={this.hide}>
-            <View style={StyleSheet.absoluteFill}>
+          <TouchableWithoutFeedback onPress={this.hide} accessible={accessible}>
+            <View style={StyleSheet.absoluteFill} accessible={accessible}>
               <Animated.View
                 {...(!animationStarted ? { onLayout: this._onMenuLayout } : {})}
                 style={[
@@ -411,9 +412,11 @@ export class Menu extends React.Component<Props, State> {
                   shadowMenuContainerStyle,
                   style
                 ]}
+                accessible={accessible}
               >
                 <Animated.View
                   style={[styles.menuContainer, animationStarted && menuSize]}
+                  accessible={accessible}
                 >
                   {children}
                 </Animated.View>
